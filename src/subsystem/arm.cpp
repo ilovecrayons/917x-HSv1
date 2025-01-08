@@ -34,6 +34,7 @@ void Arm::setPower(float power) { motors->move(power); }
  */
 void Arm::initialize() {
     this->rotation->reset();
+    this->rotation->reset_position();
 }
 
 /**
