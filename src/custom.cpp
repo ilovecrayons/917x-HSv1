@@ -5,6 +5,7 @@
 #include "lemlib/util.hpp"
 #include "pros/distance.hpp"
 #include "pros/misc.hpp"
+#include "pros/screen.hpp"
 
 /**
  * @brief Moves the robot by a certain distance in a certain direction.
@@ -32,6 +33,8 @@
  * @see lemlib::Chassis::turnToPoint()
  */
 void lemlib::Chassis::moveFor(float distance, int timeout, MoveForParams params, bool async) {
+    pros::screen::print(pros::E_TEXT_MEDIUM, 9, "x: %f", "Hi"); // prints the x position
+    
     params.earlyExitRange = fabs(params.earlyExitRange);
     this->requestMotionStart();
     // were all motions cancelled?
@@ -143,6 +146,8 @@ void lemlib::Chassis::moveFor(float distance, int timeout, MoveForParams params,
     // set distTraveled to -1 to indicate that the function has finished
     distTraveled = -1;
     this->endMotion();
+    
+     pros::screen::print(pros::E_TEXT_MEDIUM, 8, "x: %f", "Hi");
 }
 
 /**
